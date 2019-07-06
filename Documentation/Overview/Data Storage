@@ -1,1 +1,16 @@
+EDS provides a lightweight, configurable data store for data ingressed into Edge System. Ingressed data is subsequently egressed to PI Web API or OCS for storage, access, and analytics.
+
+Data Storage Configuration
+
+You can configure the following data storage options:
+•	Configure OEM
+•	Configure stream storage
+•	Configure periodic egress
+•	Configure storage logging
+
+REST API
+
+You define your settings in the Edge System configuration files, and then import the changed files into Edge System. One of the methods to do this is through REST API (application programming interface). Edge System includes a RESTful API that provides read/write access to data in the EDS data storage component. For more information on API usage, see:
+•	API Calls for Reading Data
+•	API Calls for Writing Data
 
