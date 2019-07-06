@@ -1,1 +1,39 @@
+Edge System Health is a core service for publishing OMF health messages that provide the information about:
+•	Edge System and the device that it is executing on
+•	EDS, Modbus connectivity, and OPC UA connectivity
+You can configure 0 to many health endpoints for Edge System. The Edge System components that are hosted within Edge System, generate OMF health messages appropriate to their type and forward those messages to the Edge System configured OMF health endpoints.
+If one or more OMF health endpoints are unreachable, you must buffer the OMF health messages locally until they are available.
+The following health messages are received:
+
+Next Heartbeat
+    The stream ID follows this format:
+Connectors.Machine_NameAdapter_Component_ID.NextHealthMessageExpected
+    A stream message is sent every minute. The stream has the following properties:
+
+    Time
+        String type with the current time. 
+    NextHealthMessageExpected
+        String type with the expected time of the next Next Heartbeat message. 
+
+Device Status
+    The stream ID follows this format:
+
+    Connectors.Machine_NameAdapter_Component_ID.DeviceStatus
+
+    A stream message is sent every time the connector status changes. The stream has the following properties:
+
+    Time
+        String type with the current time 
+    Device Status
+        String type with the current device status. The following strings are possible:
+        •	Good: Connected to the device and collecting data.
+        •	Connected/No Data: Connected to the device, but not receiving data.
+        •	AttemptingFailover: The connectivity is attempting to force failover.
+        	
+        This is currently not yet implemented.
+        •	Starting: The connectivity is starting, but not connected to the device.
+        •	Device in error: Communication error with the device.
+        •	Shutdown: The connectivity is shutting down.
+
+For more information about how to configure health, see Health endpoint configuration.
 
