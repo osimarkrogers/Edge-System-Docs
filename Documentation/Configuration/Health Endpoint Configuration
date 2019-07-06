@@ -1,1 +1,90 @@
+You configure the port of the Edge System by editing or creating configuration files, saving them to your local device, and then making REST requests to the provided endpoints to write them to the correct location in Edge System. Alternatively, you can configure the components of Edge System through command-line (Windows) or terminal (Linux).
+	
+•	To view help for Edge System port, run this command:
+
+OSIsoft.Data.System.Host.exe help system port
+
+•	To view all configured facets of the Edge System, run this command:
+
+.\OSIsoft.Data.System.Host.exe configuration system
+
+
+
+Configure port using REST
+
+This procedure explains how you can configure the port on which the Edge System will be bound to.
+Edge System stores port configuration in the System_Port.json file located in:
+•	Windows: %ProgramData%/OSIsoft/EdgeSystem/Configuration
+•	Linux: /usr/share/OSIsoft/EdgeSystem/Configuration
+If you change the System_Port.json file, the updates will be reflected on the next startup of the Edge System.
+Parameter
+	
+Description
+Port
+	
+Required. The tcp port to bind Edge System to. (Range [1024,65535]) Example: 5590
+
+1. 	
+In any text editor, open System_Port.json.
+The recommended text editor for Linux is nano.
+2. 	
+Edit the Port field as needed.
+Edge System uses port 5590 as its default port.
+Default configuration:
+
+{ "Port": 5590 }
+
+3. 	
+Save and copy the file to all devices running Edge System.
+4. 	
+Use any REST client and make a request using the following:
+•	Method: POST
+•	Endpoint: http://localhost:5590/api/v1/configuration/system
+Draft comment: Is this the exact same address as for the components configuration?
+•	Header: Content-Type application/json
+•	Body: System_port.json
+Example using cURL:
+
+curl -v -d "@System_Port.json" -H "Content-Type: application/json" -X POST http://localhost:5590/api/v1/configuration/system
+
+Draft comment: Is this the exact same address as for the components configuration?
+
+HTTP status 204 indicates a successful transaction and the Edge System port is configured.
+
+
+Configure port on Windows
+
+This procedure describes how to configure the Edge System port number using the command prompt.
+
+1. 	
+Open a command prompt.
+2. 	
+Navigate to the Edge System installation directory: %Program Files%/OSIsoft/EdgeSystem.
+3. 	
+To configure the port number, run this command:
+
+.\OSIsoft.Data.System.Host.exe configuration system port port=portnumber
+
+4. 	
+To view the configured port number, run this command:
+
+.\OSIsoft.Data.System.Host.exe configuration system port
+
+
+Configure port on Linux
+
+1. 	
+Start a terminal.
+2. 	
+Navigate to the Edge System installation directory: /opt/EdgeSystem.
+3. 	
+To configure the port number, run this command:
+
+./OSIsoft.Data.System.Host configuration system port port=portNumber
+
+4. 	
+To view the configured port number, run this command:
+
+./OSIsoft.Data.System.Host configuration system port
+
 
