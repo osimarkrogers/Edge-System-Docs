@@ -1,90 +1,83 @@
-You configure the port of the Edge System by editing or creating configuration files, saving them to your local device, and then making REST requests to the provided endpoints to write them to the correct location in Edge System. Alternatively, you can configure the components of Edge System through command-line (Windows) or terminal (Linux).
+You configure health endpoints of the Edge System by editing or creating configuration files, saving them to your local device, and then making REST requests to the provided endpoints to write them to the correct location in Edge System. Alternatively, you can configure the components of Edge System through command line.
 	
-•	To view help for Edge System port, run this command:
+•	To view help for Edge System health, run this command:
 
-OSIsoft.Data.System.Host.exe help system port
+OSIsoft.Data.System.Host.exe help System HealthEndpoints
 
 •	To view all configured facets of the Edge System, run this command:
 
 .\OSIsoft.Data.System.Host.exe configuration system
 
 
+Configure health endpoints using REST
 
-Configure port using REST
-
-This procedure explains how you can configure the port on which the Edge System will be bound to.
-Edge System stores port configuration in the System_Port.json file located in:
+Edge System stores health configuration parameters in the System_Health.json file located in:
 •	Windows: %ProgramData%/OSIsoft/EdgeSystem/Configuration
 •	Linux: /usr/share/OSIsoft/EdgeSystem/Configuration
-If you change the System_Port.json file, the updates will be reflected on the next startup of the Edge System.
-Parameter
+
+<Table: Configuration Parameters for Edge System Health>
+
 	
-Description
-Port
-	
-Required. The tcp port to bind Edge System to. (Range [1024,65535]) Example: 5590
+The schema file System.HealthEndpoints.Schema.json specifies how to formally describe the configuration parameters for Edge System health. It is located in:
+•	Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Configuration
+•	Linux: /usr/share/OSIsoft/EdgeSystem/Configuration
+
+Edge System sends health information for all of its Edge Connectivity. If you change the System_HealthEndpoints.json file, the updates will be reflected on the next startup of Edge System.
 
 1. 	
-In any text editor, open System_Port.json.
+In any text editor, open System_HealthEndpoints.json.
 The recommended text editor for Linux is nano.
 2. 	
-Edit the Port field as needed.
-Edge System uses port 5590 as its default port.
-Default configuration:
+Modify the parameters with values as shown in these examples:
 
-{ "Port": 5590 }
+{ "id":"WebAPI"; "endpoint": "https://example.com/piwebapi/omf", "userName": "userName", "password": "password", "clientId": null, "clientSecret": null, "buffering": 0, "maxBufferSizeMB": 0, "validateEndpointCertificate": true } { "id":"OCS", "endpoint": "https://example.com/api/Tenants/abcde123/Namespaces/Health/omf", "userName": null, "password": null, "clientId": "clienId", "clientSecret": "clientSecret", "buffering": 0, "maxBufferSizeMB": 0, "validateEndpointCertificate": true }
 
 3. 	
 Save and copy the file to all devices running Edge System.
 4. 	
 Use any REST client and make a request using the following:
 •	Method: POST
-•	Endpoint: http://localhost:5590/api/v1/configuration/system
-Draft comment: Is this the exact same address as for the components configuration?
+•	Endpoint: http://localhost:5590/api/v1/configuration/System
 •	Header: Content-Type application/json
-•	Body: System_port.json
+•	Body: System_HealthEndpoints.json
 Example using cURL:
 
-curl -v -d "@System_Port.json" -H "Content-Type: application/json" -X POST http://localhost:5590/api/v1/configuration/system
+curl -v -d "@System_HealthEndpoints.json" -H "Content-Type: application/json" -X POST http://localhost:5590/api/v1/configuration/System
 
-Draft comment: Is this the exact same address as for the components configuration?
-
-HTTP status 204 indicates a successful transaction and the Edge System port is configured.
+HTTP status 204 indicates a successful transaction and the Edge System health endpoints is configured. 
 
 
-Configure port on Windows
+Configure health endpoints on Windows
 
-This procedure describes how to configure the Edge System port number using the command prompt.
+This procedure describes how to configure a health endpoint using the command prompt.
 
 1. 	
 Open a command prompt.
 2. 	
 Navigate to the Edge System installation directory: %Program Files%/OSIsoft/EdgeSystem.
 3. 	
-To configure the port number, run this command:
+To configure a health endpoint, run this command:
 
-.\OSIsoft.Data.System.Host.exe configuration system port port=portnumber
+.\OSIsoft.Data.System.Host.exe configuration System HealthEndpoints Endpoint=https://example.com/piwebapi/omf username=Test password=Test
 
 4. 	
-To view the configured port number, run this command:
+To view configured health, run this command:
 
-.\OSIsoft.Data.System.Host.exe configuration system port
+.\OSIsoft.Data.System.Host.exe configuration System HealthEndpoints
 
 
-Configure port on Linux
+Configure health endpoints on Linux
 
 1. 	
 Start a terminal.
 2. 	
 Navigate to the Edge System installation directory: /opt/EdgeSystem.
 3. 	
-To configure the port number, run this command:
+To configure a health endpoint, run this command:
 
-./OSIsoft.Data.System.Host configuration system port port=portNumber
+./OSIsoft.Data.System.Host configuration System HealthEndpoints Endpoint=https://example.com/piwebapi/omf username=Test password=Test
 
 4. 	
-To view the configured port number, run this command:
+To view configured health endpoints, run this command:
 
-./OSIsoft.Data.System.Host configuration system port
-
-
+./OSIsoft.Data.System.Host configuration System HealthEndpoints
