@@ -1,1 +1,28 @@
+Edge System diagnostics are retrieved through streams. The following streams can be retrieved:
 
+System.Diagnostics
+    Provides diagnostic information about the system itself, for example:
+
+    { "Timestamp": "2019-07-02T17:32:28.5160797Z", "Process Identifier": 15692, "StartTime": "2019-07-02T17:32:26.1651838Z" "WorkingSet": 68169728 "TotalProcessorTime": "00:00:02.4843750", "TotalUserProcessorTime": "00:00:01.9531250", "TotalPrivilegedProcessorTime": "00:80:00.5312500", "HandleCount": 572, "ManagedMemorySize": 7722224, "PrivateMemorySize": 38703104, "PeakPagedMemorySize": 45043712, "StorageTotalSize": 510641782784, "StorageFreeSpace": 234438676480 }
+
+SampleAdapter.ErrorRate
+    The moving average of errors for the component over 10 minutes. Collected in half minute intervals. 
+SampleAdapter.StreamCount
+    The number of types and streams that the component created in the system. 
+SampleAdapter.IORate
+    The moving average of events per second over 10 minutes. Collected in half minute intervals. 
+
+The following procedure describes how to retrieve available streams.
+
+1. 	
+Use any REST client and make a request using the following:
+•	Method: GET
+•	Endpoint: http://localhost:5590/api/v1/tenants/default/namespaces/diagnostics/Streams
+•	Header: Content-Type application/json
+Example using cURL:
+
+curl -H "Content-Type: application/json" -X GET http://localhost:5590/api/v1/tenants/default/namespaces/diagnostics/Streams
+
+You should see stream information similar to the following:
+
+{ "TypeId: "Diagnostics.System", "Id": "System.Diagnostics", "Name": "System.Diagnostics", "Description": null, "InterpolationMode": null, "ExtrapolationMode": null }, { "TypeId: "Diagnostics.Adapter.ErrorRate", "Id": "SampleAdapter.ErrorRate", "Name": "SampleAdapter.ErrorRate", "Description": null, "InterpolationMode": null, "ExtrapolationMode": null }, { "TypeId: "Diagnostics.StreamCountEvent", "Id": "SampleAdapter.StreamCount", "Name": "SampleAdapter.StreamCount", "Description": null, "InterpolationMode": null, "ExtrapolationMode": null }, { "TypeId: "Diagnostics.IORate", "Id": "SampleAdapter.IORate", "Name": "SampleAdapter.IORate", "Description": null, "InterpolationMode": null, "ExtrapolationMode": null }
