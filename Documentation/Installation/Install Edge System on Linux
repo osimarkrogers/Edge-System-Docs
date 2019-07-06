@@ -18,3 +18,49 @@ When prompted, type in your password and press Enter.
 
 Edge System is installed on your Linux computer.
 
+Create Linux x64 Docker container
+
+1. 	
+Use any text editor to create a text file named Dockerfile with the following base content:
+
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 ARG source WORKDIR / EXPOSE 5000 ADD ./EdgeSystem_linux-x64.tar . ENTRYPOINT ["./EdgeSystem_linux-x64/OSIsoft.Data.System.Host"]
+
+2. 	
+Download the Edge System Beta 1 install kit from the download site.
+3. 	
+Unzip the EdgeSystem_linux-x64.tar.gz file to EdgeSystem_linux-x64.tar.
+4. 	
+Copy DockerFileX64 and EdgeSystem_linux-x64.tar to a directory on a Linux x64 system.
+5. 	
+To create the container in that directory, open a terminal and execute the following command (sudo may be necessary): 
+
+docker build -t edgesystembeta1
+
+6. 	
+To run the container, execute the following command line (sudo may be necessary) : 
+
+docker run edgesystembeta1
+
+
+Create Linux ARM Docker container
+
+1. 	
+Use any text editor to create a text file named Dockerfile with the following base content:
+
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 ARG source WORKDIR / EXPOSE 5000 ADD ./EdgeSystem_linux-arm.tar . ENTRYPOINT ["./EdgeSystem_linux-arm/OSIsoft.Data.System.Host"]
+
+2. 	
+Download the Edge System Beta 1 install kit from the download site.
+3. 	
+Unzip the EdgeSystem_linux-arm.tar.gz file to EdgeSystem_linux-arm.tar.
+4. 	
+Copy DockerFileX64 and EdgeSystem_linux-arm.tar to a directory on a Linux ARM system.
+5. 	
+To create the container in that directory, open a terminal and execute the following command (sudo may be necessary): 
+
+docker build -t edgesystembeta1
+
+6. 	
+To run the container, execute the following command (sudo may be necessary):
+
+docker run edgesystembeta1
