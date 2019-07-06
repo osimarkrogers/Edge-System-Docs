@@ -1,1 +1,20 @@
+Install available Linux updates and upgrades before you install Edge System. In a terminal, run the following commands:
+
+sudo apt -y update sudo apt -y upgrade
+
+If you are an advanced user and would like to run a Docker container, follow the appropriate procedure:
+•	Create Linux x64 Docker container
+•	Create Linux ARM Docker container
+
+1. 	
+With root privileges, open a terminal.
+2. 	
+Install Edge System with the sudo apt -y install command. For example to install the Linux ARM Debian package, run command:
+
+sudo apt -y install ./EdgeSystem_linux-arm.deb
+
+3. 	
+When prompted, type in your password and press Enter.
+
+Edge System is installed on your Linux computer.
 
