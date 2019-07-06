@@ -1,1 +1,19 @@
+Software requirements
 
+The Edge System is targeted for operation on resource constrained edge gateway devices that run a variety of Windows and Linux operating systems. Minimum requirements for an edge gateway to host an Edge System are listed below.
+Operating systems:
+•	Microsoft Windows 10 (64-bit) and higher
+•	Ubuntu 16.04 (64-bit) and higher
+•	Debian 9
+•	Linux on ARM (32)
+	
+This release might run on other Linux distributions if it meets the requirements for .NET Core on Linux . For more information, see Prerequisites for .NET Core on Windows.
+•	Any processor that supports .NET Core 2
+•	Docker container compatible
+
+Hardware requirements
+
+•	ARM or Intel CPU
+•	1 GHz single core
+•	512 MB RAM
+•	Internal storage (SSD preferred)
