@@ -1,1 +1,4 @@
-
+Edge System writes log messages to flat text files in the following locations:
+•	Windows: %ProgramData%/OSIsoft/EdgeSystem/Logs
+•	Linux: /usr/share/OSIsoft/EdgeSystem/Logs
+Each message in the log displays the message severity level, timestamp, and the message itself. To change which messages are logged, see Change logging levels.
