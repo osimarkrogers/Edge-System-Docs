@@ -1,1 +1,13 @@
+1. 	
+Start a terminal.
+2. 	
+Navigate to the Edge System installation directory: /opt/EdgeSystem.
+3. 	
+To configure components, run this command:
 
+./OSIsoft.Data.System.Host configuration system components componentId=componentId componentType=componentType
+
+4. 	
+To view configured components, run this command:
+
+./OSIsoft.Data.System.Host configuration system components
