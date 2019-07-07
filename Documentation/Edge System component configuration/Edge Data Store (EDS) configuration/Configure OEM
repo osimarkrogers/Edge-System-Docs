@@ -1,1 +1,32 @@
+You can configure transaction logging parameters as needed. OEM configuration parameters are stored in the Storage_OEM.json file located in:
+•	Windows: %ProgramData%/OSIsoft/EdgeSystem/Configuration
+•	Linux: /usr/share/OSIsoft/EdgeSystem/Configuration
+<Table: Configuration Parameters for Storage OEM>
+	
+The schema file Storage_OEM.Schema.json specifies how to formally describe the OEM parameters for EDS. It is located in:
+•	Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Schema
+•	Linux: /opt/EdgeSystem/Schema
 
+1. 	
+Open Storage_OEM.json in any text editor.
+Recommended text editors for Linux are nano or Libre Office Writer.
+2. 	
+Modify the parameters with values as shown in this example:
+
+{ "CheckpointRateInSec": 30, "TransactionLogLimitMB": 250, "EnableTransactionLog": true }
+
+3. 	
+Save and copy the file to all the devices that are running Edge System.
+4. 	
+Use any REST client and make a request using the following:
+•	Method: PUT
+•	Endpoint: http://localhost:5590/api/v1/configuration/storage/OEM
+•	Header: Content-Type application/json
+•	Body: Storage_OEM.json
+Example using curl:
+
+curl -v -d "Storage_OEM.json" -H "Content-Type: application/json" -X PUT http://localhost:5590/api/v1/configuration/storage/OEM
+
+For more information on REST routes, see REST request reference.
+
+If the HTTP status of the request is 204, the request was successful and OEM is configured.
