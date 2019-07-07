@@ -1,1 +1,32 @@
+You can configure stream storage parameters as needed. Stream storage configuration parameters are stored in the Storage_StreamStorage.json file located in:
+•	Windows: %ProgramData%/OSIsoft/EdgeSystem/Configuration
+•	Linux: /usr/share/OSIsoft/EdgeSystem/Configuration
+<Table: Configuration Parameters for stream storage>
+	
+The schema file Storage_StreamStorage.Schema.json specifies how to formally describe the stream storage parameters for EDS. It is located in:
+•	Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Schema
+•	Linux: /opt/EdgeSystem/Schema
 
+1. 	
+Open Storage_StreamStorage.json in any text editor.
+Recommended text editors for Linux are nano or Libre Office Writer.
+2. 	
+Modify the parameters with values as shown in this example:
+
+{ "StreamStorageLimitMB": 2, "StreamStorageTargetMB": 1 }
+
+3. 	
+Save and copy the file to all the devices that are running Edge System.
+4. 	
+Use any REST client and make a request using the following:
+•	Method: PUT
+•	Endpoint: http://localhost:5590/api/v1/configuration/storage/StreamStorage
+•	Header: Content-Type application/json
+•	Body: Storage_StreamStorage.json
+Example using curl:
+
+curl -v -d "Storage_StreamStorage.json" -H "Content-Type: application/json" -X PUT http://localhost:5590/api/v1/configuration/storage/StreamStorage
+
+For more information on REST routes, see REST request reference.
+
+If the HTTP status of the request is 204, the request was successful and stream storage is configured.
