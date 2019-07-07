@@ -1,1 +1,32 @@
+By default, Edge system captures Information, Warning and Error messages in the message log. To adjust this behavior, complete the following:
+	
+The schema file System.Logging.Schema.json specifies how to formally describe the configuration parameters for Edge System message logging. It is located in:
+•	Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Schema
+•	Linux: /opt/EdgeSystem/Schema
 
+1. 	
+Open the System_Logging.json file located in:
+•	Windows: %ProgramData%/OSIsoft/EdgeSystem/Configuration
+•	Linux: /usr/share/OSIsoft/EdgeSystem/Configuration
+	
+The individual components of Edge System have their own logging files, for example:
+•	Modbus TCP connectivity: Modbus1_Logging.json
+•	OPC UA connectivity: OpcUa1_Logging.json
+•	Edge Data Store (EDS): Storage_Logging.json
+2. 	
+Change the LogLevel value to one of the following:
+
+Verbose
+    Captures all messages: Verbose, Debug, Information, Warning and Error 
+Debug
+    Captures most messages: Debug, Information, Warning and Error 
+Information
+    Captures most messages: Information, Warning and Error 
+Warning
+    Captures only Warning and Error messages 
+Error
+    Captures Error messages only 
+
+	
+•	Changing the Log Level affects which messages are captured, not which messages are displayed. Edge System applies the change immediately after you save the System_Logging.json.
+•	Auto-detection of configuration changes might not work correctly for every text editor. For example, auto-detection does not work in the default text editor for an Ubuntu distribution. Use a text editor such as nano or LibreOffice Writer to ensure proper functionality.
