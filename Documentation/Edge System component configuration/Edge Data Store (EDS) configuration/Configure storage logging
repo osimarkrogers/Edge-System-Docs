@@ -1,1 +1,10 @@
-
+Configuring message logging for Edge Data Store follows the same procedure as configuring Edge System message logging as a whole.
+	
+The schema file Storage.Logging.Schema.json is located in:
+•	Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Schema
+•	Linux: /opt/EdgeSystem/Schema
+For more information, see the following topics:
+•	Message logging configuration
+•	Change logging levels
+•	Configure message logging on Windows
+•	Configure message logging on Linux
