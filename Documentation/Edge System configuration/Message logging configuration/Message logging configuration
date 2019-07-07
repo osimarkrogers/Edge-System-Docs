@@ -2,3 +2,14 @@ Edge System writes log messages to flat text files in the following locations:
 •	Windows: %ProgramData%/OSIsoft/EdgeSystem/Logs
 •	Linux: /usr/share/OSIsoft/EdgeSystem/Logs
 Each message in the log displays the message severity level, timestamp, and the message itself. To change which messages are logged, see Change logging levels.
+
+
+
+Configure message logging on Windows
+
+Message logging is enabled by default on Windows. The logs are saved in .txt file format to %ProgramData%/OSIsoft/EdgeSystem/Logs, and are created daily. 
+
+
+
+Configure message logging on Linux
+Message logging is enabled by default on Linux. The logs are saved at in .txt file format/usr/share/OSIsoft/EdgeSystem/Logs, and are created daily.
