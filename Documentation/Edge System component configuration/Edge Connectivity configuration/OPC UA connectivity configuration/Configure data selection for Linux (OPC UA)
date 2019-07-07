@@ -1,1 +1,21 @@
+1. 	
+Start a terminal.
+2. 	
+Navigate to the Edge System installation directory: /opt/EdgeSystem.
+3. 	
+To configure data selection, do one of the following:
+•	
+Type in the properties and their values through a command as shown in this example:
 
+.\OSIsoft.Data.System.Host Configuration ConnectivityComponentID DataSelection
+Draft comment: Draft Comment
+
+•	
+Import a .json file through a command as shown in this example:
+
+.\OSIsoft.Data.System.Host Configuration ConnectivityComponentID DataSelection import SampleFilePath/SampleConfigurations.json
+
+4. 	
+To view configured data sources, run this command:
+
+./OSIsoft.Data.System.Host configuration ConnectivityComponentID DataSelection
