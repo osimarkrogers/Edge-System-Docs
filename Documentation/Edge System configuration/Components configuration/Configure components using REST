@@ -1,1 +1,40 @@
+It is recommended that you then delete all configuration files from your local device, both for space considerations, and to protect any sensitive information that they could contain.
+Edge System stores configuration parameters in the System_Components.json file located in:
+•	Windows: %ProgramData%/OSIsoft/EdgeSystem/Configuration
+•	Linux: /usr/share/OSIsoft/EdgeSystem/Configuration
+Configuration parameters for Edge System components
+Parameter
+	
+Description
+ComponentId
+	
+Required. The ID of the component. It can be any alphanumeric string, for example Storage.
+ComponentType
+	
+Required. The type of the component, for example EDS.Component.
+There are three types of components: EDS, Modbus TCP connectivity, and OPC UA connectivity.
 
+1. 	
+In any text editor, open System_Components.json.
+The recommended text editor for Linux is nano.
+2. 	
+Remove, add, or edit components as needed.
+	
+You can add multiple Modbus TCP and OPC UA connectivity components.
+Default configuration with all components:
+
+{ "ComponentConfigurations": [ { "ComponentId": "OpcUa1", "ComponentType": "OpcUa" }, { "ComponentId": "Modbus1", "ComponentType": "Modbus" }, { "ComponentId": "Storage", "ComponentType": "EDS.Component" } ] }
+
+3. 	
+Save and copy the file to all devices running Edge System.
+4. 	
+Use any REST client and make a request using the following:
+•	Method: POST
+•	Endpoint: http://localhost:5590/api/v1/configuration/system
+•	Header: Content-Type application/json
+•	Body: System_Components.json
+Example using cURL:
+
+curl -v -d "@System_Components.json" -H "Content-Type: application/json" -X POST http://localhost:5590/api/v1/configuration/system
+
+HTTP status 204 indicates a successful transaction and the Edge System components are configured.
