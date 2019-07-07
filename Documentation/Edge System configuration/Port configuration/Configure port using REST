@@ -1,1 +1,38 @@
+This procedure explains how you can configure the port on which the Edge System will be bound to.
+Edge System stores port configuration in the System_Port.json file located in:
+•	Windows: %ProgramData%/OSIsoft/EdgeSystem/Configuration
+•	Linux: /usr/share/OSIsoft/EdgeSystem/Configuration
+If you change the System_Port.json file, the updates will be reflected on the next startup of the Edge System.
+Parameter
+	
+Description
+Port
+	
+Required. The tcp port to bind Edge System to. (Range [1024,65535]) Example: 5590
 
+1. 	
+In any text editor, open System_Port.json.
+The recommended text editor for Linux is nano.
+2. 	
+Edit the Port field as needed.
+Edge System uses port 5590 as its default port.
+Default configuration:
+
+{ "Port": 5590 }
+
+3. 	
+Save and copy the file to all devices running Edge System.
+4. 	
+Use any REST client and make a request using the following:
+•	Method: POST
+•	Endpoint: http://localhost:5590/api/v1/configuration/system
+Draft comment: Is this the exact same address as for the components configuration?
+•	Header: Content-Type application/json
+•	Body: System_port.json
+Example using cURL:
+
+curl -v -d "@System_Port.json" -H "Content-Type: application/json" -X POST http://localhost:5590/api/v1/configuration/system
+
+Draft comment: Is this the exact same address as for the components configuration?
+
+HTTP status 204 indicates a successful transaction and the Edge System port is configured.
