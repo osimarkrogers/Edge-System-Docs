@@ -1,1 +1,13 @@
+1. 	
+Start a terminal.
+2. 	
+Navigate to the Edge System installation directory: /opt/EdgeSystem.
+3. 	
+To configure the port number, run this command:
 
+./OSIsoft.Data.System.Host configuration system port port=portNumber
+
+4. 	
+To view the configured port number, run this command:
+
+./OSIsoft.Data.System.Host configuration system port
