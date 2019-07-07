@@ -1,1 +1,16 @@
+The first thing you should verify after you have Edge System installed is the product version information. This information can be useful for troubleshooting purposes.
 
+1. 	
+Use any REST client and make a request using the following:
+•	Method: GET
+•	Endpoint: http://localhost:5590/api/v1/Diagnostics/productinformation
+•	Header: Content-Type application/json
+Example using cURL:
+
+curl -H "Content-Type: application/json" -X GET http://localhost:5590/api/v1/Diagnostics/productinformation
+
+For more information on REST routes, see REST request reference.
+
+You should see product version information similar to the following:
+
+"Edge System": "1.0.0.0", ".Net Core Version": ".NETCoreApp,Version=v2.2", "Core CLR Version": ".NET Core 4.6.27617.05", "Operating System": "Microsoft Windows 10.0.16299"
