@@ -1,1 +1,7 @@
+Use the following REST requests for configuring the Edge System, Edge Connectivity (including Modbus TCP connectivity and OPC UA connectivity), and storage.
+	
+The difference between the POST and the PUT method is that POST allows to create a configuration and PUT replaces a configuration. If you use POST on an existing configuration, the request will fail. 
+<Table: Edge System Routes>
+<Table: Edge Connectivity Routes>
+<Table: Edge Storage Routes>
 
