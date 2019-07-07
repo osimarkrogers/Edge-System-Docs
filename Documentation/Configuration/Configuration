@@ -1,8 +1,0 @@
-You must configure several files in Edge System to ensure connectivity and system behavior appropriate to your specific needs. Configuration of Edge System includes the following tasks:
-•	Components configuration
-•	Message logging configuration
-•	Port configuration
-•	Health endpoint configuration
-	
-The preferred way of configuring Edge System is using REST. For more information about REST, see Understanding and Using REST APIs . 
-
