@@ -1,1 +1,64 @@
+You can configure EDS for data egress to send data from an Edge device to OSIsoft Cloud Services or {Conref}
+PI Server
+. EDS egress configuration includes:
+•	The device identifier for the data source (OCS and {Conref}
+PI Server
+)
+•	The target URL of the intended endpoint (OCS and {Conref}
+PI Server
+)
+•	The execution period for intended egress (OCS and {Conref}
+PI Server
+)
+•	The client ID for the destination device (OCS only)
+•	The client secret for the destination device (OCS only)
+•	The username for the destination device ({Conref}
+PI Server
+only)
+•	The password for the destination device ({Conref}
+PI Server
+only)
+Stream storage configuration parameters are stored in the Storage_PeriodEgressTargets.json file located in:
+•	Windows: %ProgramData%/OSIsoft/EdgeSystem/Configuration
+•	Linux: /usr/share/OSIsoft/EdgeSystem/Configuration
+	
+The schema file Storage_PeriodicEgress.Schema.json specifies how to formally describe the periodic egress parameters for EDS. It is located in:
+•	Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Schema
+•	Linux: /opt/EdgeSystem/Schema
 
+1. 	
+Open Storage_PeriodEgressTargets.json in any text editor.
+Recommended text editors for Linux are nano or Libre Office Writer.
+2. 	
+Provide base content as shown in this example:
+
+[{ "Id": "OCS", "ExecutionPeriod": "00:00:50", "Name": null, "Description": null, "Enabled": true, "Backfill": false, "EgressStreamFilter": "", "EgressEventFilter": "", "ParallelTransferTasks": 1, "EventDataTransferChunkSize": 200, "StreamPrefix": "20190502ARM", "TypePrefix": "", "URL": "URL", "Token": null, "ClientId": "ClientId", "ClientSecret": "ClientSecret", "UserName": null, "Password": null, "EnableLocalDebug": false }, { "Id": "PWA", "ExecutionPeriod": "00:00:50", "Name": null, "Description": null, "Enabled": true, "Backfill": false, "EgressStreamFilter": "", "EgressEventFilter": "", "ParallelTransferTasks": 1, "EventDataTransferChunkSize": 200, "StreamPrefix": "20190502ARM", "TypePrefix": "", "URL": "URL", "Token": null, "ClientId": null, "ClientSecret": null, "UserName": "Username", "Password": "Password", "EnableLocalDebug": false } ]
+
+3. 	
+In both the “Id: OCS” and “Id: PWA” sections, make the following entries to the egress configuration file: 
+<Table: Configuration Parameters for EDS Egress (OCS and PI Server)>
+4. 	
+For OCS egress only, make the following entries in the “ID: “OCS” section of the egress configuration file: 
+<Table: Configuration Parameters for EDS Egress (OCS Only)>
+"Id": "OCS", "ExecutionPeriod": "00:00:50", "Name": null, "Description": null, "Enabled": true, "Backfill": false, "EgressStreamFilter": "", "EgressEventFilter": "", "ParallelTransferTasks": 1, "EventDataTransferChunkSize": 200, "StreamPrefix": "20190502ARM", "TypePrefix": "", "URL": "URL", "Token": null, "ClientId": "ClientId", "ClientSecret": "ClientSecret", "UserName": null, "Password": null, "EnableLocalDebug": false
+
+5. 	
+For PI Server egress only, make the following entries in the “ID: “PWA” section of the egress configuration file: 
+<Table: Configuration Parameters for EDS Egress (PWA Only)>
+ "Id": "PWA", "ExecutionPeriod": "00:00:50", "Name": null, "Description": null, "Enabled": true, "Backfill": false, "EgressStreamFilter": "", "EgressEventFilter": "", "ParallelTransferTasks": 1, "EventDataTransferChunkSize": 200, "StreamPrefix": "20190502ARM", "TypePrefix": "", "URL": "URL", "Token": null, "ClientId": null, "ClientSecret": null, "UserName": "Username", "Password": "Password", "EnableLocalDebug": false
+
+6. 	
+Save and copy the file to all the devices that are running Edge System.
+7. 	
+Use any REST client and make a request using the following:
+•	Method: PUT
+•	Endpoint: http://localhost:5590/api/v1/configuration/storage/PeriodicEgressTargets
+•	Header: Content-Type application/json
+•	Body: Storage_PeriodicEgressTargets.json
+Example using curl:
+
+curl -v -d "Storage_PeriodicEgressTargets.json" -H "Content-Type: application/json" -X PUT http://localhost:5590/api/v1/configuration/storage/PeriodicEgressTargets
+
+For more information on REST routes, see REST request reference.
+
+If the HTTP status of the request is 204, the request was successful and periodic egress is configured.
