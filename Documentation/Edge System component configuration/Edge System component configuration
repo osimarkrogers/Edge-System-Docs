@@ -1,1 +1,4 @@
-
+Depending on which components you included in your Edge System's configuration, you have to individually configure the component.
+For more information on how to configure Edge Connectivity, see Edge Connectivity configuration. For more information on how to configure EDS, see Edge Data Store configuration.
+	
+The preferred way of configuring the Edge System's components is using REST. For more information about REST, see Understanding and Using REST APIs . 
