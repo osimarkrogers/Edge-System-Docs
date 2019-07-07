@@ -1,1 +1,34 @@
+Edge System stores health configuration parameters in the System_Health.json file located in:
+•	Windows: %ProgramData%/OSIsoft/EdgeSystem/Configuration
+•	Linux: /usr/share/OSIsoft/EdgeSystem/Configuration
 
+<Table: Configuration Parameters for Edge System Health>
+
+	
+The schema file System.HealthEndpoints.Schema.json specifies how to formally describe the configuration parameters for Edge System health. It is located in:
+•	Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Configuration
+•	Linux: /usr/share/OSIsoft/EdgeSystem/Configuration
+
+Edge System sends health information for all of its Edge Connectivity. If you change the System_HealthEndpoints.json file, the updates will be reflected on the next startup of Edge System.
+
+1. 	
+In any text editor, open System_HealthEndpoints.json.
+The recommended text editor for Linux is nano.
+2. 	
+Modify the parameters with values as shown in these examples:
+
+{ "id":"WebAPI"; "endpoint": "https://example.com/piwebapi/omf", "userName": "userName", "password": "password", "clientId": null, "clientSecret": null, "buffering": 0, "maxBufferSizeMB": 0, "validateEndpointCertificate": true } { "id":"OCS", "endpoint": "https://example.com/api/Tenants/abcde123/Namespaces/Health/omf", "userName": null, "password": null, "clientId": "clienId", "clientSecret": "clientSecret", "buffering": 0, "maxBufferSizeMB": 0, "validateEndpointCertificate": true }
+
+3. 	
+Save and copy the file to all devices running Edge System.
+4. 	
+Use any REST client and make a request using the following:
+•	Method: POST
+•	Endpoint: http://localhost:5590/api/v1/configuration/System
+•	Header: Content-Type application/json
+•	Body: System_HealthEndpoints.json
+Example using cURL:
+
+curl -v -d "@System_HealthEndpoints.json" -H "Content-Type: application/json" -X POST http://localhost:5590/api/v1/configuration/System
+
+HTTP status 204 indicates a successful transaction and the Edge System health endpoints is configured.
