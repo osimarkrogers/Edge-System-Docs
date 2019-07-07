@@ -1,13 +1,15 @@
+This procedure describes how to configure a health endpoint using the command prompt.
+
 1. 	
-Start a terminal.
+Open a command prompt.
 2. 	
-Navigate to the Edge System installation directory: /opt/EdgeSystem.
+Navigate to the Edge System installation directory: %Program Files%/OSIsoft/EdgeSystem.
 3. 	
 To configure a health endpoint, run this command:
 
-./OSIsoft.Data.System.Host configuration System HealthEndpoints Endpoint=https://example.com/piwebapi/omf username=Test password=Test
+.\OSIsoft.Data.System.Host.exe configuration System HealthEndpoints Endpoint=https://example.com/piwebapi/omf username=Test password=Test
 
 4. 	
-To view configured health endpoints, run this command:
+To view configured health, run this command:
 
-./OSIsoft.Data.System.Host configuration System HealthEndpoints
+.\OSIsoft.Data.System.Host.exe configuration System HealthEndpoints
