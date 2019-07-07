@@ -1,1 +1,15 @@
+This procedure describes how to configure the Edge System port number using the command prompt.
 
+1. 	
+Open a command prompt.
+2. 	
+Navigate to the Edge System installation directory: %Program Files%/OSIsoft/EdgeSystem.
+3. 	
+To configure the port number, run this command:
+
+.\OSIsoft.Data.System.Host.exe configuration system port port=portnumber
+
+4. 	
+To view the configured port number, run this command:
+
+.\OSIsoft.Data.System.Host.exe configuration system port
