@@ -1,1 +1,29 @@
+OPC UA connectivity requires a JSON file, for example called OpcUa_DataSource.json, which includes parameters as described in the following table: 
+<Table: Configuration Parameters for OPC UA data source>
+	
+The schema file OpcUa.Datasource.Schema.json specifies how to formally describe the data source parameters for OPC UA connectivity. It is located in:
+•	Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Schema
+•	Linux: /opt/EdgeSystem/Schema
 
+1. 	
+If this is the first time that you are configuring the data source for this component, create a JSON file and save it to any location.
+2. 	
+Open the file and provide or modify the parameters with values as shown in this example:
+
+{ "EndpointUrl": "opc.tcp://IP-Address/OSIsoftTestServer", "UseSecureConnection": true, "UserName": null, "Password": null, "RootNodeIds": null, "IncomingTimestamp": "Source", "StreamIdPrefix": "OpcUa" }
+
+3. 	
+Save and copy the file to all the devices that are running Edge System.
+4. 	
+Use any REST client and make a request using the following:
+•	Method: POST
+•	Endpoint: http://localhost:5590/api/v1/configuration/OpcUa1/DataSource
+•	Header: Content-Type application/json
+•	Body: OpcUa_DataSource.json
+Example using curl:
+
+curl -v -d "@OpcUa_DataSource.json" -H "Content-Type: application/json" -X POST http://localhost:5590/api/v1/configuration/OpcUa1/DataSource
+
+For more information on REST routes, see REST request reference.
+
+HTTP status 204 indicates a successful transaction and OPC UA data source is configured.
