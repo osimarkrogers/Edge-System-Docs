@@ -1,6 +1,9 @@
+## Outbound Data
+
 You can configure data source, target device, credentials for authentication, and frequency of egress execution to the following destinations:
-•	OSIsoft Cloud Services
-•	{Conref}
-PI Server
+
+*	OSIsoft Cloud Services
+*	{Conref} PI Server
+
 For more information on how to configure egress, see Configure periodic egress.
 
