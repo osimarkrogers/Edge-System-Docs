@@ -1,8 +1,8 @@
 ##Health
 
 Edge System Health is a core service for publishing OMF health messages that provide the information about:
-*	Edge System and the device on which it is executing
-*	EDS, Modbus connectivity, and OPC UA connectivity
+* Edge System and the device on which it is executing
+* EDS, Modbus connectivity, and OPC UA connectivity
 
 You can configure 0 to many health endpoints for Edge System. Edge System components generate OMF health messages appropriate to their type, and forward those messages to the Edge System configured OMF health endpoints.
 If one or more OMF health endpoints are unreachable, you must buffer the OMF health messages locally until they are available.
