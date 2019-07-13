@@ -2,7 +2,7 @@
 
 The overview of Edge System includes the overall architecture and a brief description of the components of Edge System.
 
-### What is Edge System?
+## What is Edge System?
 
 Edge System is a lightweight implementation of Edge Data Store (EDS) with Edge Connectivity components (Modbus TCP and OPC UA) for OMF data ingress. It enables you to ingress and store time series data from remote edge devices, and to subsequently egress that data to PI Web API or OCS, depending on configuration choices.
 Edge System provides the following capabilities:
