@@ -1,6 +1,0 @@
-### OMF
-
-Edge System uses OSIsoft Message Format (OMF) to communicate between components. All
-data ingress into Edge System occurs using OMF, whether the Modbus TCP or OPC UA
-connectivity is employed. No configuration of OMF is required, as it utilizes the endpoint
-provided with Edge System.
