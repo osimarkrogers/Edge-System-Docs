@@ -2,12 +2,12 @@
 
 Edge System provides Edge Connectivity, which supports both Modbus TCP and OPC UA. In either case, all data ingress from collection devices into Edge System occurs through OMF. Ingressed data is retained in EDS based on system logging and stream storage configuration settings.
 
-## OMF
+### OMF
 
 Edge System uses OSIsoft Message Format (OMF) to communicate between components. All data ingress into Edge System occurs using OMF, whether or not the Modbus TCP or OPC UA connectivity is employed. No configuration of OMF is required, as it utilizes the endpoint provided with Edge System.
 For more information about OMF, see Data Ingress and OSIsoft Message Format.
 
-## Supported Edge Connectivity
+### Supported Edge Connectivity
 
 Edge System currently supports the following Edge Connectivity:
 
