@@ -8,5 +8,5 @@ You must configure several files in Edge System to ensure connectivity and syste
 * Health endpoint configuration
 
 ...
-Note: The preferred way of configuring Edge System is using REST. For more information about REST, see Understanding and Using REST APIs.
+**Note:** The preferred way of configuring Edge System is using REST. For more information about REST, see Understanding and Using REST APIs.
 ...
