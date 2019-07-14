@@ -3,7 +3,7 @@
 You configure the components of Edge System by editing or creating configuration files, saving them to your local device, and then making REST requests to the provided endpoints to write them to the correct location in Edge System. Alternatively, you can configure the components of Edge System through command-line (Windows) or terminal (Linux).
 
 ...
-Note:
+**Note:**
 * To view help for Edge System components, run this command:
 
 OSIsoft.Data.System.Host.exe help system components
