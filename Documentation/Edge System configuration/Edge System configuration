@@ -6,5 +6,7 @@ You must configure several files in Edge System to ensure connectivity and syste
 * Message logging configuration
 * Port configuration
 * Health endpoint configuration
-	
-The preferred way of configuring Edge System is using REST. For more information about REST, see Understanding and Using REST APIs .
+
+...
+Note: The preferred way of configuring Edge System is using REST. For more information about REST, see Understanding and Using REST APIs.
+...
