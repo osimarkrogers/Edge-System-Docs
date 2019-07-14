@@ -44,7 +44,7 @@ The following health messages are received:
     - AttemptingFailover: The connectivity is attempting to force failover.
     
     ...
-    Note: This is currently not yet implemented.
+    **Note:** This is currently not yet implemented.
     ...
     
     - Starting: The connectivity is starting, but not connected to the device.
