@@ -1,1 +1,3 @@
+##Edge Connectivity configuration
+
 Edge Connectivity can optionally be configured as components of Edge System. The following topics explain how you configure Modbus TCP connectivity, OPC UA connectivity and logging.
