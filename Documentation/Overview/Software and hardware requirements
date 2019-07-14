@@ -12,7 +12,7 @@ Operating systems:
 * Docker container compatible
 	
 ...
-Note: This release might run on other Linux distributions if it meets the requirements for .NET Core on Linux . For more information, see Prerequisites for .NET Core on Windows.
+**Note:** This release might run on other Linux distributions if it meets the requirements for .NET Core on Linux . For more information, see Prerequisites for .NET Core on Windows.
 ...
 
 ## Hardware requirements
