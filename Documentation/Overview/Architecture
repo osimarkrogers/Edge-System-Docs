@@ -1,11 +1,18 @@
+# Architecture
+
 The following image shows the architecture and components of an Edge System.
+
 <Mayflower architecture.png>
-Edge System architecture
+
+## Edge System architecture
+
 Edge System contains the following components:
-Edge Connectivity
+
+* Edge Connectivity
     Includes Modbus TCP and OPC UA connectivity. 
-Edge Data Store (EDS)
+* Edge Data Store (EDS)
     EDS includes the following components: OMF endpoint, data storage, API, and data egress. 
+
 Third-party applications that read from or write data to Edge System must reside on the same device as Edge System.
-For more information on inbound data, data storage, API, and outbound data, see the following topics.
+For more information on inbound data, data storage, API, and outbound data, see the following sections.
 

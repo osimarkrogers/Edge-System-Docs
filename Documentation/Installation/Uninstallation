@@ -1,41 +1,36 @@
+## Uninstall Edge System
+
 The following topics describe how to uninstall Edge System from Windows and Linux.
 
+### Uninstall Edge System from Windows
 
-Uninstall Edge System from Windows
-
-1. 	
-From the Windows menu, find Add or remove programs and open it.
-2. 	
-In the Apps & features section, find and click OSIsoft Edge System.
-3. 	
-Click Uninstall.
+1. From the Windows menu, find Add or remove programs and open it.
+2. In the Apps & features section, find and click OSIsoft Edge System.
+3. Click Uninstall.
 
 Edge System is uninstalled from your Windows computer.
 
+### Uninstall Edge System from Linux
 
-Uninstall Edge System from Linux
-Ignore this element.
+1. Open a terminal.
+2. To remove Edge System with all components, enter the following command:
 
-In order to remove Edge System entirely from your Linux computer, you need to follow this procedure.
-
-1. 	
-Open a terminal.
-2. 	
-To remove Edge System with all components, enter
-
+...
 sudo apt remove osisoft.edgesystem
+...
 
-a. 	
-When prompted, enter your password and press Enter.
-3. 	
-To delete the OSIsoft directory with all data, enter
+  a. When prompted, enter your password and press Enter.
+3. To delete the OSIsoft directory with all data, enter the following command:
 
+...
 sudo rm -r /usr/share/OSIsoft
+...
 
-4. 	
-To delete the Secret Store directory, enter
+4. To delete the Secret Store directory, enter the following command:
 
+...
 sudo rm -r /.OSIsoft
+...
 
 Edge System is uninstalled from your Linux computer.
 

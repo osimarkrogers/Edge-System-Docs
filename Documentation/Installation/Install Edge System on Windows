@@ -1,16 +1,12 @@
+## Install Edge System on Windows
+
 Install any available Windows updates before you install Edge System.
 
-1. 	
-From the Edge System install kit, run EdgeSystem.msi.
-2. 	
-In the OSIsoft Edge System Setup window, click Next.
-3. 	
-To change the folder in which to install Edge System, click Change and browse to the folder that you want.
-4. 	
-Click Next --> Install .
-The Setup Wizard installs Edge System.
-5. 	
-Click Finish to complete the installation.
+1. From the Edge System install kit, run EdgeSystem.msi.
+2. In the OSIsoft Edge System Setup window, click Next.
+3. To change the folder in which to install Edge System, click Change and browse to the folder that you want.
+4. Click Next --> Install. The Setup Wizard installs Edge System.
+5. Click Finish to complete the installation.
 
 Edge System is installed on your Windows computer.
 

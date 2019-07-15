@@ -1,19 +1,28 @@
-To retrieve values for a particular stream identified in Retrieve streams, follow this procedure.
+## Retrieve stream diagnostics
 
-1. 	
-Note the Id of the stream, for example SampleAdapter.ErrorRate.
-2. 	
-Use any REST client and make a request. The following example returns the last value in the stream:
-•	Method: GET
-•	Endpoint: http://localhost:5590/api/v1/tenants/default/namespaces/diagnostics/Streams/SampleAdapter.ErrorRate/data/last
-•	Header: Content-Type application/json
+To retrieve values for a particular stream identified in *Retrieve streams*, follow this procedure.
+
+### Procedure
+
+1. Note the Id of the stream, for example SampleAdapter.ErrorRate.
+2. Use any REST client and make a request. The following example returns the last value in the stream:
+
+   - Method: GET
+   - Endpoint: http://localhost:5590/api/v1/tenants/default/namespaces/diagnostics/Streams/SampleAdapter.ErrorRate/data/last
+   - Header: Content-Type application/json
+   
 Example using cURL:
 
-curl -H "Content-Type: application/json" -X GET http://localhost:5590/api/v1/tenants/default/namespaces/diagnostics/Streams/SampleAdapter.ErrorRate/data/last
+...
+curl -H "Content-Type: application/json" -X GET http://localhost:5 590/api/v1/tenants/default/namespaces/diagnostics/Streams/SampleAdapter.ErrorRate/data/last
+...
 
 For more information on API calls for reading data, see Reading Data API.
 
+### Results
+
 You should see the last value in the stream similar to the following:
 
+...
 { "Timestamp": "2019-07-02T17:39:50.0587866Z", "ErrorRate": 2 }
-
+...

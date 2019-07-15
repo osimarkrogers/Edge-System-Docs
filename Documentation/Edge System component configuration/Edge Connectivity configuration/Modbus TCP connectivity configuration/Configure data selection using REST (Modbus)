@@ -1,33 +1,92 @@
+#####Configure data selection using REST
+
+In addition to the data source configuration, you need to provide a data selection configuration
+to specify the data you want the Modbus TCP connectivity to collect from the data sources. 
+
 Modbus TCP connectivity requires a JSON file, for example called Modbus_DataSelection.json, which includes parameters as described in the following table: 
 <Table: Configuration parameters for Modbus data selection>
-	
-The schema file Modbus.DataSelection.Schema.json specifies how to formally describe the data selection parameters for Modbus TCP connectivity. It is located in:
-•	Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Schema
-•	Linux: /opt/EdgeSystem/Schema
+
+...
+#Note:# The schema file Modbus.DataSelection.Schema.json specifies how to formally describe the data selection parameters for Modbus TCP connectivity. It is located in:
+
+* Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Schema
+* Linux: /opt/EdgeSystem/Schema
+...
+
 Each JSON object in the file represents a measurement. You can modify the fields in each object to configure the measurement parameters. To add more measurements, you need to create more JSON objects with properly completed fields.
 	
-Runtime configuration changes are supported by the Modbus TCP connectivity. You can add or remove measurements while the Modbus TCP connectivity is running. The Modbus TCP connectivity picks up measurement configuration changes applied through editing the data selection file. Changes are applied when you save the file.
+1. If this is the first time that you are configuring data selection for this component, create a JSON file and save it to any location.
+2. Open the file and provide or modify the parameters with values as shown in this example:
 
-In addition to the data source configuration, you need to provide a data selection configuration to specify the data you want the Modbus TCP connectivity to collect from the data sources.
+   ...
+[
+{
+"Select": true,
+"Name": "Measurement1"
+"UnitId": 0,
+"RegisterType": 1,
+"RegisterOffset": 0,
+"DataTypeCode": 1,
+"BitMap": "",
+"ConversionFactor": null,
+"ConversionOffset": null,
+"StreamId": "SampleStreamID1",
+"ScanRate": 0
+},
+{
+"Select": true,
+"Name": "Measurement2"
+"UnitId": 247,
+"RegisterType": 2,
+"RegisterOffset": 65535,
+"DataTypeCode": 7,
+"BitMap": "",
+"ConversionFactor": 1,
+"ConversionOffset": 0,
+"StreamId": "",
+"ScanRate": 86400000
+},
+{
+"Select": true,
+"Name": "Measurement3"
+"UnitId": 1,
+"RegisterType": 3,
+"RegisterOffset": 1,
+"DataTypeCode": 20,
+"BitMap": "16151413",
+"ConversionFactor": 2,
+"ConversionOffset": 3.4,
+"StreamId": "Sample Stream ID 2",
+"ScanRate": 1000
+},
+{
+"Select": true,
+"Name": "Measurement3"
+"UnitId": 1,
+"RegisterType": 4,
+"RegisterOffset": 1,
+"DataTypeCode": 30,
+"BitMap": "30293231",
+"ConversionFactor": 1,
+"ConversionOffset": 2,
+"StreamId": "Sample_Stream_ID_3",
+"ScanRate": 1000
+}
+]
+...
 
-1. 	
-If this is the first time that you are configuring data selection for this component, create a JSON file and save it to any location.
-2. 	
-Open the file and provide or modify the parameters with values as shown in this example:
+3. Save and copy the file to all the devices that are running Edge System.
+4. Use any REST client and make a request using the following:
+   * Method: POST
+   * Endpoint: http://localhost:5590/api/v1/configuration/Modbus1/DataSelection
+   * Header: Content-Type application/json
+   * Body: Modbus_DataSelection.json
 
-[ { "Select": true, "UnitId": 0, "RegisterType": 1, "RegisterOffset": 0, "DataTypeCode": 1, "BitMap": "", "ConversionFactor": null, "ConversionOffset": null, "StreamId": "SampleStreamID1", "ScanRate": 0 }, { "Select": true, "UnitId": 247, "RegisterType": 2, "RegisterOffset": 65535, "DataTypeCode": 7, "BitMap": "", "ConversionFactor": 1, "ConversionOffset": 0, "StreamId": "", "ScanRate": 86400000 }, { "Select": true, "UnitId": 1, "RegisterType": 3, "RegisterOffset": 1, "DataTypeCode": 20, "BitMap": "16151413", "ConversionFactor": 2, "ConversionOffset": 3.4, "StreamId": "Sample Stream ID 2", "ScanRate": 1000 }, { "Select": true, "UnitId": 1, "RegisterType": 4, "RegisterOffset": 1, "DataTypeCode": 30, "BitMap": "30293231", "ConversionFactor": 1, "ConversionOffset": 2, "StreamId": "Sample_Stream_ID_3", "ScanRate": 1000 } ]
-
-3. 	
-Save and copy the file to all the devices that are running Edge System.
-4. 	
-Use any REST client and make a request using the following:
-•	Method: POST
-•	Endpoint: http://localhost:5590/api/v1/configuration/Modbus1/DataSelection
-•	Header: Content-Type application/json
-•	Body: Modbus_DataSelection.json
 Example using curl:
 
+...
 curl -v -d "@Modbus_DataSelection.json" -H "Content-Type: application/json" -X POST http://localhost:5590/api/v1/configuration/Modbus1/DataSelection
+...
 
 For more information on REST routes, see REST request reference.
 

@@ -1,31 +1,32 @@
+## Inbound data
+
 Edge System provides Edge Connectivity, which supports both Modbus TCP and OPC UA. In either case, all data ingress from collection devices into Edge System occurs through OMF. Ingressed data is retained in EDS based on system logging and stream storage configuration settings.
 
-
-OMF
+### OMF
 
 Edge System uses OSIsoft Message Format (OMF) to communicate between components. All data ingress into Edge System occurs using OMF, whether or not the Modbus TCP or OPC UA connectivity is employed. No configuration of OMF is required, as it utilizes the endpoint provided with Edge System.
 For more information about OMF, see Data Ingress and OSIsoft Message Format.
 
-
-Supported Edge Connectivity
+### Supported Edge Connectivity
 
 Edge System currently supports the following Edge Connectivity:
-Modbus TCP Connectivity
+
+* Modbus TCP Connectivity
     Collects data from a Modbus TCP slave device and writes this data to the Edge Data Store using OMF. 
-OPC UA Connectivity
-    Collects data from an OPC UA server and writes this data to the Edge Data Store using OMF. 
-Edge System can connect to multiple Modbus TCP slave devices and OPC UA servers per host process. This connectivity is loaded and executed based upon configuration file settings.
-All future Edge Connectivity is intended to be hosted by Edge System. 
+* OPC UA Connectivity
+    Collects data from an OPC UA server and writes this data to the Edge Data Store using OMF.
+    
+Edge System can connect to multiple Modbus TCP slave devices and OPC UA servers per host process. This connectivity is loaded and executed based upon configuration file settings.  All future Edge Connectivity is intended to be hosted by Edge System. 
 
 
-Modbus TCP Connectivity
+### Modbus TCP Connectivity
 
 The Modbus TCP Connectivity transfers time-series data from Modbus TCP slave devices to the Edge Data Store (EDS) through OMF.
 The Modbus TCP connectivity models the register measurements in a Modbus data source by polling data from the Modbus devices, based on the measurement configuration provided.
 Modbus is a commonly available communication protocol used for connecting and transmitting information between industrial electronic devices. The Modbus TCP connectivity communicates with any device conforming to the Modbus TCP/IP protocol through a gateway or router. The Modbus slave devices and routers do not need to be on the same subnet as Edge System.
 
 
-OPC UA Connectivity
+### OPC UA Connectivity
 
 The OPC UA connectivity transfers time-series data from an OPC UA (Open Platform Communications Unified Architecture) server to the Edge Data Store (EDS) through OMF.
 On startup, the OPC UA connectivity browses the entire OPC UA server address space and exports the available OPC UA variables into a .json file for data selection. Data is created automatically based on the information obtained from the data selection .json file. OPC UA data from OPC UA variables is read through subscriptions (unsolicited reads).
