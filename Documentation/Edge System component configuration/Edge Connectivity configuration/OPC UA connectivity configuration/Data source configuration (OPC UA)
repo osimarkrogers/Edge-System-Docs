@@ -4,5 +4,5 @@ The following topics explain how to configure the data source of OPC UA connecti
 
 To view OPC UA connectivity data source help, run the following command:
 
-*	Windows: .\OSIsoft.Data.System.Host.exe help ConnectivityComponentId datasource
+* Windows: .\OSIsoft.Data.System.Host.exe help ConnectivityComponentId datasource
 * Linux: ./OSIsoft.Data.System.Host help ConnectivityComponentId datasource
