@@ -1,28 +1,43 @@
+#####Configure data source using REST
+
 Modbus TCP connectivity requires a JSON file, for example called Modbus_DataSource.json, which includes parameters as described in the following table:
 <Table: Configuration Parameters for Modbus data source>
 	
-The schema file Modbus.Datasource.Schema.json specifies how to formally describe the data source parameters for Modbus TCP connectivity. It is located in:
-•	Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Schema
-•	Linux: /opt/EdgeSystem/Schema
+...
+**Note:** The schema file Modbus.Datasource.Schema.json specifies how to formally describe the data source parameters for Modbus TCP connectivity. It is located in:
 
-1. 	
-If this is the first time that you are configuring the data source for this component, create a JSON file and save it to any location.
-2. 	
-Open the file and provide or modify the parameters with values as shown in this example:
+* Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Schema
+* Linux: /opt/EdgeSystem/Schema
+...
 
-{ "IpAddress": "IP-Address", "Port": 502, "ConnectTimeout": 15000, "ReconnectInterval": 5000, "RequestTimeout": 9000, "DelayBetweenRequests": 0, "MaxResponseDataLength": 250 }
+1. If this is the first time that you are configuring the data source for this component, create a JSON file and save it to any location.
+2. Open the file and provide or modify the parameters with values as shown in this example:
 
-3. 	
-Save and copy the file to all the devices that are running Edge System.
-4. 	
-Use any REST client and make a request using the following:
-•	Method: POST
-•	Endpoint:http://localhost:5590/api/v1/configuration/Modbus1/DataSource
-•	Header: Content-Type application/json
-•	Body: Modbus_DataSource.json
-Example using cURL:
+   ...
+   {
+   "IpAddress": "IP-Address",
+   "Port": 502,
+   "StreamIdPrefix": "TestPrefix",
+   "ConnectTimeout": 15000,
+   "ReconnectInterval": 5000,
+   "RequestTimeout": 9000,
+   "DelayBetweenRequests": 0,
+   "MaxResponseDataLength": 250
+   }
+   ...
 
+3. Save and copy the file to all the devices that are running Edge System.
+4. Use any REST client and make a request using the following:
+
+   * Method: POST
+   * Endpoint:http://localhost:5590/api/v1/configuration/Modbus1/DataSource
+   * Header: Content-Type application/json
+   * Body: Modbus_DataSource.json
+   
+   Example using cURL:
+   ...
 curl -v -d "@Modbus_DataSource.json" -H "Content-Type: application/json" -X POST http://localhost:5590/api/v1/configuration/Modbus1/DataSource
+   ...
 
 For more information on REST routes, see REST request reference.
 
