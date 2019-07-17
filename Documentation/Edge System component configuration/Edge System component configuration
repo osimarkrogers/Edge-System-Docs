@@ -4,3 +4,35 @@ Depending on which components you included in your Edge System's configuration, 
 For more information on how to configure Edge Connectivity, see Edge Connectivity configuration. For more information on how to configure EDS, see Edge Data Store configuration.
 	
 The preferred way of configuring the Edge System's components is using REST. For more information about REST, see Understanding and Using REST APIs. 
+<Configuration parameters for Edge System components table>
+
+1. 	
+In any text editor, open System_Components.json.
+The recommended text editor for Linux is nano.
+2. 	
+Add another component, for example a second Modbus connectivity component:
+
+[ { "componentId": "Modbus2", "componentType": "Modbus" } ]
+
+	
+•	You can add multiple Modbus TCP and OPC UA connectivity components.
+•	You cannot add components with a ComponentId of Storage or System. There will not be an error, but they will not be added either
+Default configuration with all components:
+
+[ { "ComponentId": "OpcUa1", "ComponentType": "OpcUa" }, { "ComponentId": "Modbus1", "ComponentType": "Modbus" }, { "ComponentId": "Storage", "ComponentType": "EDS.Component" } ]
+
+3. 	
+Save and copy the file to all devices running Edge System.
+4. 	
+Use any REST client and make a request using the following:
+•	Method: POST
+•	Endpoint: http://localhost:5590/api/v1/configuration/system/components
+•	Header: Content-Type application/json
+•	Body: System_Components.json
+Example using cURL:
+
+curl -v -d "@System_Components.json" -H "Content-Type: application/json" -X POST http://localhost:5590/api/v1/configuration/system/components
+
+HTTP status 204 indicates a successful transaction and the Edge System components are configured.
+
+If you want to delete a component or get the list of components, see REST request reference for the appropriate REST requests. 
