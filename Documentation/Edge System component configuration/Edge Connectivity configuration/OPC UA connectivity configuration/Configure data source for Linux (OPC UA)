@@ -1,14 +1,15 @@
+Configure data source for Linux
+
 1. 	
 Start a terminal.
 2. 	
-Navigate to the Edge System installation directory: /opt/EdgeSystem.
+As superuser, navigate to the Edge System installation directory: /opt/EdgeSystem.
 3. 	
 To configure a data source, run this command.
 
-./OSIsoft.Data.System.Host configuration ConnectivityComponentID DataSource Url=opc.tcp://localhost:5463/SimulationServer
+./OSIsoft.Data.System.Host Configuration ConnectivityComponentID DataSource EndpointUrl=opc.tcp://localhost:5463/SimulationServer
 
 4. 	
-To view configured data sources and help, run this command.
+Optional: To view configured data sources, run this command.
 
-./OSIsoft.Data.System.Host configuration ConnectivityComponentID DataSource
-<Image: OPCConnectorHelp_Lin>
+./OSIsoft.Data.System.Host Configuration ConnectivityComponentID DataSource
