@@ -1,13 +1,22 @@
+Configure port on Linux
+Ignore this element.
+
 1. 	
 Start a terminal.
 2. 	
-Navigate to the Edge System installation directory: /opt/EdgeSystem.
+As superuser, navigate to the Edge System installation directory: /opt/EdgeSystem.
 3. 	
-To configure the port number, run this command:
+Type in the properties and their values through a command as shown in this example:
 
-./OSIsoft.Data.System.Host configuration system port port=portNumber
+./OSIsoft.Data.System.Host Configuration System Port port=5590
 
 4. 	
-To view the configured port number, run this command:
+Stop and start the OSIsoft Edge System service by running the following commands:
 
-./OSIsoft.Data.System.Host configuration system port
+systemctl stop osisoft.edgesystem.service systemctl start osisoft.edgesystem.service
+
+5. 	
+Optional: To view the configured port number, run this command:
+
+./OSIsoft.Data.System.Host configuration System Port
+
