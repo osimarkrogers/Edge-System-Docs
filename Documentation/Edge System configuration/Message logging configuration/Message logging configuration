@@ -7,7 +7,23 @@ Each message in the log displays the message severity level, timestamp, and the 
 
 Configure message logging on Windows
 
-Message logging is enabled by default on Windows. The logs are saved in .txt file format to %ProgramData%/OSIsoft/EdgeSystem/Logs, and are created daily. 
+Message logging is enabled by default on Windows. The logs are saved in .txt file format to %ProgramData%/OSIsoft/EdgeSystem/Logs, and are created daily.
+To change the message logging configuration, do the following:
+
+1. 	
+Open a command prompt.
+2. 	
+Navigate to the Edge System installation directory: %Program Files%/OSIsoft/Edge System.
+3. 	
+Type in the properties and their values through a command as shown in this example:
+
+.\OSIsoft.Data.System.Host.exe Configuration System Logging LogLevel=Debug LogFileSizeLimitBytes=34567832 LogFileCountLimit=37
+
+4. 	
+Optional: To view configured message logging, run this command:
+
+.\OSIsoft.Data.System.Host.exe Configuration System Logging
+
 
 
 
