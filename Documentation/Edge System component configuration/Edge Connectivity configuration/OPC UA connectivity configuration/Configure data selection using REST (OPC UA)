@@ -1,21 +1,14 @@
+Configure data selection using REST
+
 OPC UA connectivity requires a JSON file, for example called OpcUa_DataSelection.json, which includes parameters as described in the following table: 
 <Table: Configuration Parameters for OPC UA data selection>
 	
-The schema file OpcUa.DataSelection.Schema.json specifies how to formally describe the data selection parameters for OPC UA connectivity. It is located in:
-•	Windows: %ProgramFiles%/OSIsoft/EdgeSystem/Schema
-•	Linux: /opt/EdgeSystem/Schema
-	
-•	The OPC UA connectivity automatically retrieves changes to the DataSelection.json file and will then begin collecting data for selected variables.
-•	Auto-detection of configuration changes might not work correctly with every text editor, for example with the default text editor on an Ubuntu distribution. Use a text editor such as nano or LibreOffice Writer or restart the OPC UA connectivity to apply the changes.
-
-In addition to the data source configuration, you need to provide a data selection configuration to specify the data you want the OPC UA connectivity to collect from the data sources.
-
-1. 	
-If this is the first time that you are configuring data selection for this component, create a JSON file and save it to any location.
+1. If this is the first time that you are configuring data selection for this component, create a JSON file and save it to any location.
+The file naming schema is ComponentId_DataSelection.json
 2. 	
 Open the file and provide or modify the parameters with values as shown in this example:
 
-[ { "Selected": true, "DisplayName": "Random1", "NodeId": "ns=5;s=Random1", "CustomStreamId": "CustomStreamName" }, { "Selected": false, "DisplayName": "Sawtooth1", "NodeId": "ns=5;s=Sawtooth1", "CustomStreamId": null }, { "Selected": true, "DisplayName": "Sinusoid1", "NodeId": "ns=5;s=Sinusoid1", "CustomStreamId": null } ]
+[ { "Selected": true, "Name": "Random1", "NodeId": "ns=5;s=Random1", "StreamId": "CustomStreamName" }, { "Selected": false, "Name": "Sawtooth1", "NodeId": "ns=5;s=Sawtooth1", "StreamId": null }, { "Selected": true, "Name": "Sinusoid1", "NodeId": "ns=5;s=Sinusoid1", "StreamId": null } ]
 
 3. 	
 Save and copy the file to all the devices that are running Edge System.
@@ -31,4 +24,4 @@ curl -v -d "@OpcUa_DataSelection.json" -H "Content-Type: application/json" -X PO
 
 For more information on REST routes, see REST request reference.
 
-HTTP status 204 indicates a successful transaction and OPC UA data selection is configured.
+HTTP status 204 indicates a successful transaction and OPC UA data selection is configured. 
