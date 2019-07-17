@@ -25,7 +25,22 @@ Optional: To view configured message logging, run this command:
 .\OSIsoft.Data.System.Host.exe Configuration System Logging
 
 
-
-
 Configure message logging on Linux
-Message logging is enabled by default on Linux. The logs are saved at in .txt file format/usr/share/OSIsoft/EdgeSystem/Logs, and are created daily.
+Ignore this element.
+
+Message logging is enabled by default on Linux. The logs are saved in .txt file format/usr/share/OSIsoft/EdgeSystem/Logs, and are created daily.
+To change the message logging configuration, do the following:
+
+1. 	
+Start a terminal.
+2. 	
+As superuser, navigate to the Edge System installation directory: /opt/EdgeSystem.
+3. 	
+Type in the properties and their values through a command as shown in this example:
+
+./OSIsoft.Data.System.Host Configuration System Logging LogLevel=Debug LogFileSizeLimitBytes=34567832 LogFileCountLimit=37
+
+4. 	
+Optional: To view configured message logging, run this command:
+
+./OSIsoft.Data.System.Host Configuration System Logging
