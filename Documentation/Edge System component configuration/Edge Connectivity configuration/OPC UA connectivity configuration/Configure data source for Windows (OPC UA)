@@ -1,14 +1,15 @@
-1. 	
-Start a PowerShell session.
-2. 	
-Navigate to the Edge System installation directory: %Program Files%/OSIsoft/EdgeSystem.
-3. 	
-To configure a data source, run this command.
+###Configure data source for Windows
 
+1. Start a PowerShell session.
+2. Navigate to the Edge System installation directory: %Program Files%/OSIsoft/EdgeSystem.
+3. To configure a data source, run this command.
+
+   ...
 .\OSIsoft.Data.System.Host.exe configuration ConnectivityComponentID DataSource Url=opc tcp://localhost:5463/SimulationServer
+   ...
+   
+4. To view configured data sources and help, run this command:
 
-4. 	
-To view configured data sources and help, run this command.
-
+   ...
 .\OSIsoft.Data.System.Host.exe configuration ConnectivityComponentID DataSource
-<Image: OPCConnectorHelp_Win>
+   ...
