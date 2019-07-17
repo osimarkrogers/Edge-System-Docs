@@ -1,1 +1,39 @@
+##Retrieve Streams
+
+Edge System diagnostics are retrieved through streams. The following streams can be retrieved:
+
+**_SampleAdapter.ErrorRate_**
+    The moving average of errors for the component over 10 minutes. Collected in half minute intervals. For example:
+
+    { "Timestamp": "2019-07-12T22:39:21.0238111Z", "ErrorRate": 0 }
+
+**_SampleAdapter.StreamCount_**
+    The number of types and streams that the component created in the system. For example:
+
+    { "Timestamp": "2019-07-12T22:14:51.0506661Z", "SteamCount": 0, "TypeCount": 0 }
+
+SampleAdapter.IORate
+    The moving average of events per second over 10 minutes. Collected in half minute intervals. For example:
+
+    { "Timestamp": "2019-07-12T22:42:51.0224981Z", "IORate": 0 }
+
+System.Diagnostics
+    Provides diagnostic information about the system itself, for example:
+
+    { "Timestamp": "2019-07-12T22:36:51.2797107Z", "ProcessIdentifier": 5972, "StartTime": "2019-07-12T22:14:45.3799984Z", "WorkingSet": 83.7578125, "TotalProcessorTime": 4.078125, "TotalUserProcessorTime": 3.0625, "TotalPrivilegedProcessorTime": 1.015625, "HandleCount": 673, "ManagedMemorySize": 10.237281799316406, "PrivateMemorySize": 61.3359375, "PeakPagedMemorySize": 61.578125, "StorageTotalSize": 486947.90625, "StorageFreeSpace": 396594.19140625 }
+
+The following procedure describes how to retrieve available streams.
+
+1. 	
+Use any REST client and make a request using the following:
+•	Method: GET
+•	Endpoint: http://localhost:5590/api/v1/tenants/default/namespaces/diagnostics/Streams
+•	Header: Content-Type application/json
+Example using cURL:
+
+curl -H "Content-Type: application/json" -X GET http://localhost:5590/api/v1/tenants/default/namespaces/diagnostics/Streams
+
+You should see stream information similar to the following:
+
+{ "TypeId: "Diagnostics.Adapter.ErrorRate", "Id": "SampleAdapter.ErrorRate", "Name": "SampleAdapter.ErrorRate", "Description": null, "InterpolationMode": null, "ExtrapolationMode": null }, { "TypeId: "Diagnostics.StreamCountEvent", "Id": "SampleAdapter.StreamCount", "Name": "SampleAdapter.StreamCount", "Description": null, "InterpolationMode": null, "ExtrapolationMode": null }, { "TypeId: "Diagnostics.IORate", "Id": "SampleAdapter.IORate", "Name": "SampleAdapter.IORate", "Description": null, "InterpolationMode": null, "ExtrapolationMode": null }, { "TypeId: "Diagnostics.System", "Id": "System.Diagnostics", "Name": "System.Diagnostics", "Description": null, "InterpolationMode": null, "ExtrapolationMode": null }
 
