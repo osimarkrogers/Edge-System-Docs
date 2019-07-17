@@ -1,23 +1,29 @@
-#####Configure data selection for Windows
+Configure data selection for Windows
+Ignore this element.
 
-1. Start a PowerShell session.
-2. Navigate to the Edge System installation directory: %Program Files% /OSIsoft/EdgeSystem.
-3. To configure data selection, do one of the following:
-   * Type in the properties and their values through a command as shown in this example:
-   
-   ...
+1. 	
+Open a command prompt.
+2. 	
+Navigate to the Edge System installation directory: %Program Files% /OSIsoft/EdgeSystem.
+3. 	
+To configure data selection, do one of the following:
+•	
+Type in the properties and their values through a command as shown in this example:
+
 .\OSIsoft.Data.System.Host.exe Configuration ConnectivityComponentID DataSelection Selected=true UnitId=1 RegisterType=3 RegisterOffset=12 DataTypeCode=10 ScanRate=2000
-   ...
 
-   * Import a .json file through a command as shown in this example:
+•	
+Import a .json file through a command as shown in this example:
 
-   ...
 .\OSIsoft.Data.System.Host.exe Configuration ConnectivityComponentID DataSelection import SampleFilePath/SampleConfigurations.json
-   ...
-   
-4. To view configured data selection, run command
 
-   ...
-.\OSIsoft.Data.System.Host.exe configuration ConnectivityComponentID DataSelection
-   ...
+4. 	
+Optional: To view configured data selection, run command
 
+.\OSIsoft.Data.System.Host.exe Configuration ConnectivityComponentID DataSelection
+
+Add Comment
+Subscribe
+Collapse all
+Comments:  0
+No comments yet
