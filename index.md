@@ -2,11 +2,10 @@
 uid: index
 ---
 
-OCS API
+Edge System API
 =======
 
-OSIsoft Cloud Services (OCS) is a highly flexible cloud-based platform that provides scalable, elastic,  
-centralized environment to aggregate data for reporting, advanced analytics, and third-party applications.
+OSIsoft Edge System is TBD.
 
    - [OSIsoft Cloud Services](xref:osisoftCloudServices)
    - [Management](xref:AccountManagementOverview)
@@ -44,7 +43,7 @@ centralized environment to aggregate data for reporting, advanced analytics, and
      - [Searching](xref:sdsSearching)
      - [Filter Expressions - Data](xref:sdsFilterExpressions)
      - [Table Format](xref:sdsTableFormat)
-   - [Data Ingress and OSIsoft Message Format](xref:dataIngress)
+   - [Data Ingress and OSIsoft Message Format](xref:DataIngressOverview)
      - [Data Ingress to Cloud Services Using OMF](xref:omfIngressToOCS)
      - [Using OMF with Cloud Services](xref:omfIngressSpecification)
      - [Topics](xref:omfIngressTopics)
